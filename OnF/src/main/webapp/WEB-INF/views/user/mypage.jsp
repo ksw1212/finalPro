@@ -229,11 +229,12 @@
                                 aria-expanded="false"><i data-feather="file-text" class="feather-icon"></i><span
                                     class="hide-menu">My Page </span></a>
                             <ul aria-expanded="false" class="collapse  first-level base-level-line">
+                            
                                 <li class="sidebar-item"><a href="${root }user/mypage" class="sidebar-link"><span
                                             class="hide-menu"> My Page 홈
                                         </span></a>
                                 </li>
-                                <li class="sidebar-item"><a href="${root }user/profile" class="sidebar-link"><span
+                                <li class="sidebar-item"><a href="${root }user/profile?user_idx=${user_idx}" class="sidebar-link"><span
                                             class="hide-menu"> 상세정보
                                         </span></a>
                                 </li>
@@ -249,6 +250,7 @@
                                             class="hide-menu"> 회원탈퇴
                                         </span></a>
                                 </li>
+                            
                             </ul>
                         </li>
                         <li class="list-divider"></li>
@@ -280,12 +282,13 @@
                         <div class="d-flex align-items-center">
                             <nav aria-label="breadcrumb">
                                 <ol class="breadcrumb m-0 p-0">
+                               
                                 	<li class="breadcrumb-item"><a href="${root }user/mypage" class="text-muted">마이페이지</a></li>
                                     <li class="breadcrumb-item"><a href="${root}user/profile" class="text-muted">상세정보</a></li>
                                     <li class="breadcrumb-item"><a href="${root}user/mypage_password" class="text-muted">비밀번호 변경</a></li>
                                     <li class="breadcrumb-item"><a href="${root }user/mypage_modify" class="text-muted">회원정보 수정</a></li>
                                     <li class="breadcrumb-item"><a href="${root }user/mypage_withdraw" class="text-muted">회원탈퇴</a></li>
-
+							
                                 </ol>
                             </nav>
                         </div>
@@ -326,14 +329,7 @@
                                             <td>이름</td>
                                             <td><input type="text" name="user_name" id="user_name" value="${mypageUserBean.user_name }" readonly="readonly" /></td>
                                         </tr>
-                                        <%-- <tr>
-                                            <td>사번</td>
-                                            <td><input type="text" name="emp_id" id=emp_id value="${readUserBean.emp_id }"  readonly="readonly"/></td>
-                                        </tr> --%>
-                                        <%-- <tr>
-                                            <td>직급</td>
-                                            <td><input type="text" name="position_name" id="position_name" value="${readUserBean.position_name }"  readonly="readonly"/></td>
-                                        </tr> --%>
+                                        
                                         <tr>
                                             <td>E-mail</td>
                                             <td><input type="text" name="email" id="user_email" value="${mypageUserBean.user_email }" readonly="readonly"/></td>
@@ -342,14 +338,14 @@
                                             <td>연락처</td>
                                             <td><input type="text" name="user_tel" id="user_tel" value="${mypageUserBean.user_tel }"  readonly="readonly"/></td>
                                         </tr>
-                                        <%-- <tr>
-                                            <td>소속부서</td>
-                                            <td><input type="text" name="dep_name" id="dep_name" value="${readUserBean.dep_name }"  readonly="readonly"/></td>
-                                        </tr> --%>
-                                        <%-- <tr>
-                                            <td>내선번호</td>
-                                            <td><input type="text" name="extension_tel" id="extension_tel" value="${readUserBean.extension_tel }"  readonly="readonly"/></td>
-                                        </tr> --%>
+                                         <tr>
+                                            <td>자택주소</td>
+                                            <td><input type="text" name="user_addr1" id="user_addr1" value="${mypageUserBean.user_addr1 }"  readonly="readonly"/></td>
+                                        </tr> 
+                                        <tr>
+                                            <td>자택상세주소</td>
+                                            <td><input type="text" name="user_addr2" id="user_addr2" value="${mypageUserBean.user_addr2 }"  readonly="readonly"/></td>
+                                        </tr> 
                                     </tbody>
                                 </table>
                             </div>

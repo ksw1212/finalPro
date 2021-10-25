@@ -323,20 +323,20 @@
 							<form:form class="mt-4" action="${root}user/mypage_password_pro" method="post" modelAttribute="getmidifyPasswordBean">
 								<h4 class="card-title">비밀번호</h4>
 								<div class="form-group">
-									<form:password path="password" class="form-control"/>
-									<form:errors path="password" style="color:red"/>
+									<form:password path="user_password" class="form-control"/>
+									<form:errors path="user_password" style="color:red"/>
 								</div>
 								<br />
 								<h4 class="card-title">비밀번호 확인</h4>
 								<div class="form-group">
-									<form:password path="password2" class="form-control"/>
-									<form:errors path="password2" style="color:red"/>
+									<form:password path="user_password" class="form-control"/>
+									<form:errors path="user_password" style="color:red"/>
 								</div>
 								<br />
 								<h4 class="card-title">새비밀번호</h4>
 								<div class="form-group">
-									<form:password path="password" class="form-control"/>
-									<form:errors path="password" style="color:red"/>
+									<form:password path="user_password" class="form-control"/>
+									<form:errors path="user_password" style="color:red"/>
 								</div>
 								<br />
 								

@@ -32,22 +32,22 @@ public class UserController {
 	private UserBean loginUserBean;
 
 	@GetMapping("/mypage")
-	public String mypage(@RequestParam("user_email")String user_email,
+	public String mypage(@RequestParam(defaultValue = "1")int user_idx,
 						 Model model) {
-		model.addAttribute("user_email",user_email);
-		UserBean mypageUserBean = userService.personalUserInfo(user_email);
+		model.addAttribute("user_idx",user_idx);
+		UserBean mypageUserBean = userService.personalUserInfo(user_idx);
 		model.addAttribute("mypageUserBean",mypageUserBean);
+		model.addAttribute("loginUserBean",loginUserBean);
 		return "user/mypage";
 	}
 
 	@GetMapping("/profile")
-	public String profile(@RequestParam("user_email")String user_email,
+	public String profile(@RequestParam(defaultValue = "1")int user_idx,
 						  Model model) {
-		model.addAttribute("user_email",user_email);
-		UserBean mypageUserBean = userService.personalUserInfo(user_email);
-		model.addAttribute("mypageUserBean",mypageUserBean);
-		UserBean profileUserBean = userService.HRUserInfo(user_email);
-		model.addAttribute("profileUserBean",profileUserBean);
+		model.addAttribute("user_idx",user_idx);
+		UserBean myprofileUserBean = userService.selectUserInfo(user_idx);
+		model.addAttribute("myprofileUserBean",myprofileUserBean);
+		model.addAttribute("loginUserBean",loginUserBean);
 		
 		return "user/profile";
 	}
@@ -115,6 +115,7 @@ public class UserController {
 
 ////////////////////////////////////////////////////////////
 
+	
 	@GetMapping("/login_findpassword")
 	public String login_findpassword() {
 		return "user/login_findpassword";
@@ -131,7 +132,11 @@ public class UserController {
 		return "user/mypage_password";
 	}
 	@PostMapping("/mypage_password_pro")
-	public String mypage_password_pro(@ModelAttribute("midifyPasswordBean") UserBean midifyPasswordBean) {
+	public String mypage_password_pro(@ModelAttribute("midifyPasswordBean") UserBean midifyPasswordBean,BindingResult result) {
+		if(result.hasErrors()) {
+			return "user/mypage_password";
+		}
+		
 		userService.modifyPasswordInfo(midifyPasswordBean);
 		return "user/mypage_password_success";
 	}
@@ -142,11 +147,22 @@ public class UserController {
 		return "user/mypage_modify";
 	}
 
-	@GetMapping("/mypage_withdraw")
-	public String mypage_withdraw() {
+	@RequestMapping(value = "/mypage_withdraw", method = {RequestMethod.GET,RequestMethod.POST })
+	public String mypage_withdraw(@ModelAttribute("deleteUserBean") UserBean deleteUserBean) {
+		
+		
 		return "user/mypage_withdraw";
 	}
-
+	@RequestMapping(value = "/mypage_withdraw_pro", method = {RequestMethod.GET, RequestMethod.POST})
+	public String mypage_withdraw_pro(@Valid @ModelAttribute("deleteUserBean")UserBean deleteUserBean,BindingResult result) {
+		if(result.hasErrors()) {
+			return "user/mypage_withdraw";
+		}
+		
+		userService.deleteMemberInfo(loginUserBean.getUser_email(), loginUserBean.getUser_password());
+		return "user/landing/landing";
+	}
+	
 	@GetMapping("/logout")
 	public String logout() {
 		return "user/logout";

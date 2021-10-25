@@ -1,5 +1,6 @@
 package kr.co.onoff.mapper;
 
+import org.apache.ibatis.annotations.Delete;
 import org.apache.ibatis.annotations.Insert;
 import org.apache.ibatis.annotations.Select;
 import org.apache.ibatis.annotations.Update;
@@ -16,12 +17,12 @@ public interface UserMapper {
 	
 
 	@Select("select user_name, user_email,user_tel,user_addr1,user_addr2 "
-			+ "from onf_user where user_email=#{user_email}")
-	UserBean personalUserInfo(String user_email);
+			+ "from onf_user where user_idx=#{user_idx}")
+	UserBean personalUserInfo(int user_idx);
 
-	@Select("select emp_id,extension_tel,join_date,basic_vac_total,special_vac_total,position_name,status,dep_name"
-			+ " from employee, onf_user where emp_user_idx=user_idx and user_email=#{user_email}")
-	UserBean HRUserInfo(String user_email);
+	@Select("select a.user_name, a.user_email, a.user_tel, a.user_addr1, a.user_addr2, b.emp_id, b.extension_tel, b.join_date, b.position_name, b.dep_name, b.status "
+			+ "from onf_user a, employee b, department c where user_idx=emp_user_idx and b.dep_idx=c.dep_idx and user_idx=#{user_idx}")
+	UserBean selectUserInfo(int user_idx);
 	
 	@Update("update onf_user set user_email=#{user_email},user_addr1=#{user_addr1},user_addr2=#{user_addr2},user_tel=#{user_tel} "
 			+ "where user_idx=#{user_idx}")
@@ -39,4 +40,6 @@ public interface UserMapper {
 	@Insert("insert into onf_user(user_idx, user_auth_id, user_email, user_password, user_name, user_tel, user_addr1, user_addr2, user_auth_key, user_auth_ok) "
 			+ "values(user_seq.nextval, 'ma', #{user_email, jdbcType=VARCHAR}, #{user_password, jdbcType=VARCHAR}, #{user_name}, #{user_tel}, #{user_addr1}, #{user_addr2}, #{user_auth_key, jdbcType=VARCHAR}, #{user_auth_ok, jdbcType=VARCHAR})")
 	void addUserInfo(UserBean joinUserBean);
+	@Delete("delete from onf_user where user_email=#{user_email} and user_password = #{user_password}")
+	void deleteMemberInfo(String user_email,String user_password);
 }

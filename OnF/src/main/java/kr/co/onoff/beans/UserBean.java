@@ -11,6 +11,7 @@ public class UserBean {
 	private String user_auth_id; //	권한코드
 	private String user_email; // 이메일
 	private String user_password; // 비밀번호
+	private String user_password2; // 비밀번호 확인
 	private String user_name; // 회원이름
 	private String user_tel; //	회원전화번호
 	private String user_addr1; // 회원자택주소

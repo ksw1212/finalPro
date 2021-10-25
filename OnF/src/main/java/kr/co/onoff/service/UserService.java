@@ -40,16 +40,16 @@ public class UserService {
 	}
 	
 	
-	public UserBean  personalUserInfo(String user_email) {
+	public UserBean personalUserInfo(int user_idx) {
 		
-		return userDao.personalUserInfo(loginUserBean.getUser_email());
+		return userDao.personalUserInfo(loginUserBean.getUser_idx());
 		
 	}
-	public UserBean  HRUserInfo(String user_email) {
-		return userDao.HRUserInfo(loginUserBean.getUser_email());
+	public UserBean selectUserInfo(int user_idx) {
+		return userDao.selectUserInfo(loginUserBean.getUser_idx());
 	}
 	public void getModifyUserBean(UserBean modifyUserBean) {
-		UserBean tempModifyUserBean=userDao.personalUserInfo(loginUserBean.getUser_email());
+		UserBean tempModifyUserBean=userDao.personalUserInfo(loginUserBean.getUser_idx());
 	
 		modifyUserBean.setUser_email(tempModifyUserBean.getUser_email());
 		modifyUserBean.setUser_addr1(tempModifyUserBean.getUser_addr1());
@@ -68,10 +68,13 @@ public class UserService {
 	}
 	public void getmodifyPasswordInfo(UserBean getmodifyPasswordInfo) {
 		UserBean tempModifyPasswordBean=userDao.getmodifyPasswordInfo(loginUserBean.getUser_idx());
-		getmodifyPasswordInfo.setUser_email(tempModifyPasswordBean.getUser_email());
+		getmodifyPasswordInfo.setUser_idx(tempModifyPasswordBean.getUser_idx());
 		getmodifyPasswordInfo.setUser_password(tempModifyPasswordBean.getUser_password());
 		getmodifyPasswordInfo.setUser_idx(loginUserBean.getUser_idx());
 		
+	}
+	public void deleteMemberInfo(String user_email,String user_password) {
+		userDao.deleteMemberInfo(user_email, user_password);
 	}
 	
 }

@@ -323,23 +323,23 @@
                                     <tbody>
                                         <tr>
                                             <td>이름</td>
-                                            <td><input type="text" name="user_name" id="user_name" value="${mypageUserBean.user_name }" disabled="disabled" /></td>
+                                            <td><input type="text" name="user_name" id="user_name" value="${selectUserBean.user_name }" readonly="readonly" /></td>
                                         </tr>
                                         <tr>
                                             <td>연락처</td>
-                                            <td><input type="text" name="user_tel" id="user_tel" value="${mypageUserBean.user_tel }" disabled="disabled"/></td>
+                                            <td><input type="text" name="user_tel" id="user_tel" value="${selectUserBean.user_tel }" readonly="readonly"/></td>
                                         </tr>
                                         <tr>
                                             <td>주소</td>
-                                            <td><input type="text" name="user_addr1" id="user_addr1" value="${mypageUserBean.user_addr1 }" disabled="disabled"/></td>
+                                            <td><input type="text" name="user_addr1" id="user_addr1" value="${selectUserBean.user_addr1 }" readonly="readonly"/></td>
                                         </tr>
                                          <tr>
                                             <td>상세주소</td>
-                                            <td><input type="text" name="user_addr2" id="user_addr2" value="${mypageUserBean.user_addr2 }" disabled="disabled"/></td>
+                                            <td><input type="text" name="user_addr2" id="user_addr2" value="${selectUserBean.user_addr2 }" readonly="readonly"/></td>
                                         </tr>
                                         <tr>
                                             <td>E-mail</td>
-                                            <td><input type="text" name="user_email" id="user_email" value="${mypageUserBean.user_email }" disabled="disabled"/></td>
+                                            <td><input type="text" name="user_email" id="user_email" value="${selectUserBean.user_email }" readonly="readonly"/></td>
                                         </tr>
                                     </tbody>
                                 </table>
@@ -361,23 +361,23 @@
                                     <tbody>
                                         <tr>
                                             <td>사원번호</td>
-                                            <td><input type="text" name="emp_id" id="emp_id" value="${profileUserBean.emp_id }" disabled="disabled"/></td>
+                                            <td><input type="text" name="emp_id" id="emp_id" value="${selectUserBean.emp_id }" readonly="readonly"/></td>
                                         </tr>
                                         <tr>
                                             <td>소속부서</td>
-                                            <td><input type="text" name="dep_name" id="dep_name" value="${profileUserBean.dep_name }" disabled="disabled"/></td>
+                                            <td><input type="text" name="dep_name" id="dep_name" value="${selectUserBean.dep_name }" readonly="readonly"/></td>
                                         </tr>
                                         <tr>
                                             <td>직급</td>
-                                            <td><input type="text" name="position_name" id="position_name" value="${profileUserBean.position_name }" disabled="disabled"/></td>
+                                            <td><input type="text" name="position_name" id="position_name" value="${selectUserBean.position_name }" readonly="readonly"/></td>
                                         </tr>
                                         <tr>
                                             <td>입사일</td>
-                                            <td><input type="text" name="join_date" id="join_date" value="${profileUserBean.join_date }" disabled="disabled"/></td>
+                                            <td><input type="text" name="join_date" id="join_date" value="${selectUserBean.join_date }" readonly="readonly"/></td>
                                         </tr>
                                         <tr>
                                             <td>내선번호</td>
-                                            <td><input type="text" name="extension_tel" id="extension_tel" value="${profileUserBean.extension_tel }" disabled="disabled"/></td>
+                                            <td><input type="text" name="extension_tel" id="extension_tel" value="${selectUserBean.extension_tel }" readonly="readonly"/></td>
                                         </tr>
                                     </tbody>
                                 </table>

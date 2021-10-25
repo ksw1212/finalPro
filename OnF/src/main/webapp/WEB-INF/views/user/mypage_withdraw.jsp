@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
  <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
     <c:set var="root" value="${pageContext.request.contextPath }/"/>
+<%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -337,19 +338,19 @@
 						<h3 class="card-title" align="center">회원탈퇴</h3>
 						<div class="card-body">
 
-							<form class="mt-4">
+							<form:form class="mt-4" action="mypage_withdraw_pro" method="post" modelAttribute="modifyUserBean">
 								<div class="form-group">
-									<label>비밀번호</label>
-									<input type="password" class="form-control"
-										disabled="disabled">
+									<form:label path="user_email">아이디</form:label>
+									<form:input type="text" path="user_email" class="form-control"
+										disabled="disabled"/>
 								</div>
 								<div class="form-group">
-									<label>비밀번호확인</label>
-									<input type="password" class="form-control" 
-										disabled="disabled">
+									<form:label path="user_password">비밀번호</form:label>
+									<form:password path="user_password" class="form-control" 
+										disabled="disabled"/>
 								</div>
 								
-							</form>
+							</form:form>
 
 
 						</div>

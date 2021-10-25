@@ -176,7 +176,7 @@
 						<!-- ============================================================== -->
 						<!-- Right side toggle and nav items -->
                     <!-- ============================================================== -->
-                    <ul class="navbar-nav float-right">
+                    
                      <!-- Notification -->
                         <li class="nav-item dropdown">
                             <a class="nav-link dropdown-toggle pl-md-3 position-relative" href="javascript:void(0)"
@@ -254,6 +254,7 @@
                         </li>
                         <!-- End Notification -->
                         <!-- ============================================================== -->
+                        <ul class="navbar-nav float-right">
                         <!-- User profile and search -->
                         <!-- ============================================================== -->
                         <li class="nav-item dropdown">
