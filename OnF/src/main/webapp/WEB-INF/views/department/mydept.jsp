@@ -274,53 +274,7 @@
         <!-- ============================================================== -->
         <!-- Left Sidebar - style you can find in sidebar.scss  -->
         <!-- ============================================================== -->
-        <aside class="left-sidebar" data-sidebarbg="skin6">
-            <!-- Sidebar scroll-->
-            <div class="scroll-sidebar" data-sidebarbg="skin6">
-                <!-- Sidebar navigation-->
-                <nav class="sidebar-nav">
-                    <ul id="sidebarnav">
-                        <li class="sidebar-item"> <a class="sidebar-link sidebar-link" href="index.html"
-                                aria-expanded="false"><i data-feather="home" class="feather-icon"></i><span
-                                    class="hide-menu">Dashboard</span></a></li>
-                        <li class="list-divider"></li>
-                        <li class="nav-small-cap"><strong style="font-weight:800" class="hide-menu">부서 정보</strong></li>
-
-                        <li class="sidebar-item"> 
-                        	<a class="sidebar-link" href="${root }department/mydept" aria-expanded="false">
-                        		<i data-feather="tag" class="feather-icon"></i>
-                        		<span class="hide-menu">MY 부서 </span>
-                        	</a>
-                        </li>
-                        <li class="sidebar-item"> 
-                        	<a class="sidebar-link sidebar-link" href="${root }department/dept" aria-expanded="false">
-                        		<i data-feather="message-square" class="feather-icon"></i>
-                        		<span class="hide-menu">조직도</span></a>
-                        </li>
-                        
-                        <li class="list-divider"></li>
-                        
-                        <li class="nav-small-cap">
-                        	<span class="hide-menu">여기가 끝</span>
-                        </li>
-                        <li class="sidebar-item"> 
-                        	<a class="sidebar-link sidebar-link" href="#" aria-expanded="false">
-                        		<i data-feather="edit-3" class="feather-icon"></i>
-                        		<span class="hide-menu">Documentation</span>
-                        	</a>
-                        </li>
-                        <li class="sidebar-item"> 
-                        	<a class="sidebar-link sidebar-link" href="#" aria-expanded="false">
-                        		<i data-feather="log-out" class="feather-icon"></i>
-                        		<span class="hide-menu">Logout</span>
-                        	</a>
-                        </li>
-                    </ul>
-                </nav>
-                <!-- End Sidebar navigation -->
-            </div>
-            <!-- End Sidebar scroll-->
-        </aside>
+        <c:import url="/WEB-INF/views/include/left-side-bar.jsp"/>
         <!-- ============================================================== -->
         <!-- End Left Sidebar - style you can find in sidebar.scss  -->
         <!-- ============================================================== -->

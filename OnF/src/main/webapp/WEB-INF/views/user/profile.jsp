@@ -211,56 +211,7 @@
         <!-- ============================================================== -->
         <!-- Left Sidebar - style you can find in sidebar.scss  -->
         <!-- ============================================================== -->
-        <aside class="left-sidebar" data-sidebarbg="skin6">
-            <!-- Sidebar scroll-->
-            <div class="scroll-sidebar" data-sidebarbg="skin6">
-                <!-- Sidebar navigation-->
-                <nav class="sidebar-nav">
-                    <ul id="sidebarnav">
-                        <li class="sidebar-item"> <a class="sidebar-link sidebar-link" href="index.html"
-                                aria-expanded="false"><i data-feather="home" class="feather-icon"></i><span
-                                    class="hide-menu">Dashboard</span></a></li>
-                        <li class="list-divider"></li>
-                        <li class="list-divider"></li>
-                        <li class="nav-small-cap"><span class="hide-menu">Components</span></li>
-                        <li class="sidebar-item"> <a class="sidebar-link has-arrow" href="javascript:void(0)"
-                                aria-expanded="false"><i data-feather="file-text" class="feather-icon"></i><span
-                                    class="hide-menu">My Page </span></a>
-                            <ul aria-expanded="false" class="collapse  first-level base-level-line">
-                                <li class="sidebar-item"><a href="${root }user/mypage" class="sidebar-link"><span
-                                            class="hide-menu"> My Page 홈
-                                        </span></a>
-                                </li>
-                                <li class="sidebar-item"><a href="${root }user/profile" class="sidebar-link"><span
-                                            class="hide-menu"> 상세정보
-                                        </span></a>
-                                </li>
-                                <li class="sidebar-item"><a href="${root }user/mypage_password" class="sidebar-link"><span
-                                            class="hide-menu"> 비밀번호 변경
-                                        </span></a>
-                                </li>
-                                <li class="sidebar-item"><a href="${root }user/mypage_modify" class="sidebar-link"><span
-                                            class="hide-menu"> 회원정보 수정
-                                        </span></a>
-                                </li>
-                                <li class="sidebar-item"><a href="${root }user/mypage_withdraw" class="sidebar-link"><span
-                                            class="hide-menu"> 회원탈퇴
-                                        </span></a>
-                                </li>
-                            </ul>
-                        </li>
-                        <li class="list-divider"></li>
-                        <li class="nav-small-cap"><span class="hide-menu">Extra</span></li>
-                        
-                        <li class="sidebar-item"> <a class="sidebar-link sidebar-link" href="${root }user/logout"
-                                aria-expanded="false"><i data-feather="log-out" class="feather-icon"></i><span
-                                    class="hide-menu">로그아웃</span></a></li>
-                    </ul>
-                </nav>
-                <!-- End Sidebar navigation -->
-            </div>
-            <!-- End Sidebar scroll-->
-        </aside>
+        <c:import url="/WEB-INF/views/include/left-side-bar.jsp"/>
         <!-- ============================================================== -->
         <!-- End Left Sidebar - style you can find in sidebar.scss  -->
         <!-- ============================================================== -->
@@ -289,15 +240,6 @@
                             </nav>
                         </div>
                     </div>
-                    <div class="col-5 align-self-center">
-                        <div class="customize-input float-right">
-                            <select class="custom-select custom-select-set form-control bg-white border-0 custom-shadow custom-radius">
-                                <option selected>Aug 19</option>
-                                <option value="1">July 19</option>
-                                <option value="2">Jun 19</option>
-                            </select>
-                        </div>
-                    </div>
                 </div>
             </div>
             <!-- ============================================================== -->
@@ -309,45 +251,7 @@
             <div class="container-fluid">
                 <!-- ============================================================== -->
                 <!-- Start Page Content -->
-                <!-- ============================================================== -->
-                <div class="row">
-                    <div class="col-6"  style="margin:0 auto">
-                        <div class="card">
-                            <div class="table-responsive">
-                                <table class="table" >
-                                	<thead>
-                                	<tr>
-                                	<td>개인정보</td>
-                                	</tr>
-                                	</thead>
-                                    <tbody>
-                                        <tr>
-                                            <td>이름</td>
-                                            <td><input type="text" name="user_name" id="user_name" value="${selectUserBean.user_name }" readonly="readonly" /></td>
-                                        </tr>
-                                        <tr>
-                                            <td>연락처</td>
-                                            <td><input type="text" name="user_tel" id="user_tel" value="${selectUserBean.user_tel }" readonly="readonly"/></td>
-                                        </tr>
-                                        <tr>
-                                            <td>주소</td>
-                                            <td><input type="text" name="user_addr1" id="user_addr1" value="${selectUserBean.user_addr1 }" readonly="readonly"/></td>
-                                        </tr>
-                                         <tr>
-                                            <td>상세주소</td>
-                                            <td><input type="text" name="user_addr2" id="user_addr2" value="${selectUserBean.user_addr2 }" readonly="readonly"/></td>
-                                        </tr>
-                                        <tr>
-                                            <td>E-mail</td>
-                                            <td><input type="text" name="user_email" id="user_email" value="${selectUserBean.user_email }" readonly="readonly"/></td>
-                                        </tr>
-                                    </tbody>
-                                </table>
-                            </div>
-                        </div>
-                    </div>
-                        </div>
-                        
+                <!-- ============================================================== --> 
                         <div class="row">
                     <div class="col-6"  style="margin:0 auto">
                         <div class="card">

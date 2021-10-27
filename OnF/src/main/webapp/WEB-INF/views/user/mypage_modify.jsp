@@ -1,35 +1,37 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
-    <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
-    <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
-    <c:set var="root" value="${pageContext.request.contextPath }/"/>
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="form" uri="http://www.springframework.org/tags/form"%>
+<c:set var="root" value="${pageContext.request.contextPath }/"/>
+
 <!DOCTYPE html>
-<html dir="ltr" lang="en">
+<html>
 
 <head>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <!-- Tell the browser to be responsive to screen width -->
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="description" content="">
-    <meta name="author" content="">
-    <!-- Favicon icon -->
-    <link rel="icon" type="image/png" sizes="16x16" href="../assets/images/favicon.png">
-    <title>Adminmart Template - The Ultimate Multipurpose admin template</title>
-    <!-- Custom CSS -->
-    <link href="../dist/css/style.min.css" rel="stylesheet">
-    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
-    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
-    <!--[if lt IE 9]>
-    <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
-    <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
-<![endif]-->
+   <meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<!-- Tell the browser to be responsive to screen width -->
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta name="description" content="">
+	<meta name="author" content="">
+	<!-- Favicon icon -->
+	<link rel="icon" type="image/png" sizes="16x16" href="../assets/images/favicon.png">
+	<title>admin-emp</title>
+	<!-- Custom CSS -->
+	<link href="../assets/extra-libs/c3/c3.min.css" rel="stylesheet">
+	<link href="../assets/libs/chartist/dist/chartist.min.css" rel="stylesheet">
+	<link href="../assets/extra-libs/jvector/jquery-jvectormap-2.0.2.css" rel="stylesheet" />
+	<!-- Custom CSS -->
+	<link href="../dist/css/style.min.css" rel="stylesheet">
+	<!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+	<!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+	<!--[if lt IE 9]>
+	    <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+	    <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+	<![endif]-->
 </head>
 
 <body>
-    <!-- ============================================================== -->
-    <!-- Preloader - style you can find in spinners.css -->
-    <!-- ============================================================== -->
+		
     <div class="preloader">
         <div class="lds-ripple">
             <div class="lds-pos"></div>
@@ -39,7 +41,8 @@
     <!-- ============================================================== -->
     <!-- Main wrapper - style you can find in pages.scss -->
     <!-- ============================================================== -->
-    <div id="main-wrapper" data-theme="light" data-layout="vertical" data-navbarbg="skin6" data-sidebartype="full" data-sidebar-position="fixed" data-header-position="fixed" data-boxed-layout="full">
+    <div id="main-wrapper" data-theme="light" data-layout="vertical" data-navbarbg="skin6" data-sidebartype="full"
+        data-sidebar-position="fixed" data-header-position="fixed" data-boxed-layout="full">
         <!-- ============================================================== -->
         <!-- Topbar header - style you can find in pages.scss -->
         <!-- ============================================================== -->
@@ -54,7 +57,7 @@
                     <!-- ============================================================== -->
                     <div class="navbar-brand">
                         <!-- Logo icon -->
-                        <a href="index.html">
+                        <a href="dept.jsp">
                             <b class="logo-icon">
                                 <!-- Dark Logo icon -->
                                 <img src="../assets/images/logo-icon.png" alt="homepage" class="dark-logo" />
@@ -89,13 +92,13 @@
                     <!-- ============================================================== -->
                     <!-- toggle and nav items -->
                     <!-- ============================================================== -->
-                    <ul class="navbar-nav  mr-auto ml-3 justify-content-center pl-1">
+                     <ul class="navbar-nav float-left mr-auto ml-3 pl-1">
                     <!-- vacation tap start -->
                     	<!-- ============================================================== -->
                         <!-- 상단메뉴 홈버튼 -->
                         <!-- ============================================================== -->
                     	<li class="nav-item dropdown">
-                            <a class="nav-link dropdown-toggle" href="mydept.jsp">
+                            <a class="nav-link dropdown-toggle" href="main">
                             	<i class="icon-home"></i>
                                	홈
                             </a>
@@ -140,7 +143,7 @@
                         <!-- 상단메뉴 설정버튼 -->
                         <!-- ============================================================== -->
                         <li class="nav-item">
-                            <a class="nav-link" href="${root }master/master-emp" >
+                            <a class="nav-link" href="${root }master/master_emp" >
                                 <i data-feather="settings" class="svg-icon"></i>
                                 관리자
                             </a>
@@ -150,20 +153,19 @@
                     <!-- Right side toggle and nav items -->
                     <!-- ============================================================== -->
                     <ul class="navbar-nav float-right">
-                        <!-- ============================================================== -->
-                        <!-- Search -->
-                        <!-- ============================================================== -->
-                        <li class="nav-item d-none d-md-block">
-                            <a class="nav-link" href="javascript:void(0)">
-                                <form>
-                                    <div class="customize-input">
-                                        <input class="form-control custom-shadow custom-radius border-0 bg-white"
-                                            type="search" placeholder="Search" aria-label="Search">
-                                        <i class="form-control-icon" data-feather="search"></i>
-                                    </div>
-                                </form>
+                     <!-- Notification -->
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle pl-md-3 position-relative" href="javascript:void(0)"
+                                id="bell" role="button" data-toggle="dropdown" aria-haspopup="true"
+                                aria-expanded="false">
+                                <span><i data-feather="bell" class="svg-icon"></i></span>
+                                <span class="badge badge-primary notify-no rounded-circle">5</span>
                             </a>
+                            <div class="dropdown-menu dropdown-menu-right mailbox animated bounceInDown">
+                               
+                            </div>
                         </li>
+                        <!-- End Notification -->
                         <!-- ============================================================== -->
                         <!-- User profile and search -->
                         <!-- ============================================================== -->
@@ -172,12 +174,10 @@
                                 aria-haspopup="true" aria-expanded="false">
                                 <img src="../assets/images/users/profile-pic.jpg" alt="user" class="rounded-circle"
                                     width="40">
-                                <span class="ml-2 d-none d-lg-inline-block"><span>Hello,</span> <span
-                                        class="text-dark">Jason Doe</span> <i data-feather="chevron-down"
-                                        class="svg-icon"></i></span>
+                                <span class="ml-2 d-none d-lg-inline-block"></i></span>
                             </a>
                             <div class="dropdown-menu dropdown-menu-right user-dd animated flipInY">
-                                <a class="dropdown-item" href="${root }user/mypage"><i data-feather="user"
+                                <a class="dropdown-item" href="javascript:void(0)"><i data-feather="user"
                                         class="svg-icon mr-2 ml-1"></i>
                                     My Profile</a>
                                 <a class="dropdown-item" href="javascript:void(0)"><i data-feather="credit-card"
@@ -212,205 +212,99 @@
         <!-- ============================================================== -->
         <!-- Left Sidebar - style you can find in sidebar.scss  -->
         <!-- ============================================================== -->
-        <aside class="left-sidebar" data-sidebarbg="skin6">
-            <!-- Sidebar scroll-->
-            <div class="scroll-sidebar" data-sidebarbg="skin6">
-                <!-- Sidebar navigation-->
-                <nav class="sidebar-nav">
-                    <ul id="sidebarnav">
-                        <li class="sidebar-item"> <a class="sidebar-link sidebar-link" href="index.html"
-                                aria-expanded="false"><i data-feather="home" class="feather-icon"></i><span
-                                    class="hide-menu">Dashboard</span></a></li>
-                        <li class="list-divider"></li>
-                        <li class="list-divider"></li>
-                        <li class="nav-small-cap"><span class="hide-menu">Components</span></li>
-                        <li class="sidebar-item"> <a class="sidebar-link has-arrow" href="javascript:void(0)"
-                                aria-expanded="false"><i data-feather="file-text" class="feather-icon"></i><span
-                                    class="hide-menu">My Page </span></a>
-                            <ul aria-expanded="false" class="collapse  first-level base-level-line">
-                                <li class="sidebar-item"><a href="${root }user/mypage" class="sidebar-link"><span
-                                            class="hide-menu"> My Page 홈
-                                        </span></a>
-                                </li>
-                                <li class="sidebar-item"><a href="${root }user/profile" class="sidebar-link"><span
-                                            class="hide-menu"> 상세정보
-                                        </span></a>
-                                </li>
-                                <li class="sidebar-item"><a href="${root }user/mypage_password" class="sidebar-link"><span
-                                            class="hide-menu"> 비밀번호 변경
-                                        </span></a>
-                                </li>
-                                <li class="sidebar-item"><a href="${root }user/mypage_modify" class="sidebar-link"><span
-                                            class="hide-menu"> 회원정보 수정
-                                        </span></a>
-                                </li>
-                                <li class="sidebar-item"><a href="${root }user/mypage_withdraw" class="sidebar-link"><span
-                                            class="hide-menu"> 회원탈퇴
-                                        </span></a>
-                                </li>
-                            </ul>
-                        </li>
-                        <li class="list-divider"></li>
-                        <li class="nav-small-cap"><span class="hide-menu">Extra</span></li>
-                        
-                        <li class="sidebar-item"> <a class="sidebar-link sidebar-link" href="${root }user/logout"
-                                aria-expanded="false"><i data-feather="log-out" class="feather-icon"></i><span
-                                    class="hide-menu">로그아웃</span></a></li>
-                    </ul>
-                </nav>
-                <!-- End Sidebar navigation -->
-            </div>
-            <!-- End Sidebar scroll-->
-        </aside>
-        <!-- ============================================================== -->
-        <!-- End Left Sidebar - style you can find in sidebar.scss  -->
-        <!-- ============================================================== -->
-        <!-- ============================================================== -->
-        <!-- Page wrapper  -->
-        <!-- ============================================================== -->
+        <c:import url="/WEB-INF/views/include/left-side-bar.jsp"/>
         <div class="page-wrapper">
-            <!-- ============================================================== -->
-            <!-- Bread crumb and right sidebar toggle -->
-            <!-- ============================================================== -->
-            <div class="page-breadcrumb">
-                <div class="row">
-                    <div class="col-7 align-self-center">
-                        <h4 class="page-title text-truncate text-dark font-weight-medium mb-1">상세 정보</h4>
-                        <div class="d-flex align-items-center">
-                            <nav aria-label="breadcrumb">
-                                <ol class="breadcrumb m-0 p-0">
-                                    <li class="breadcrumb-item"><a href="${root }user/mypage" class="text-muted">마이페이지</a></li>
-                                    <li class="breadcrumb-item"><a href="${root }user/profile" class="text-muted">상세정보</a></li>
-                                    <li class="breadcrumb-item"><a href="${root }user/mypage_password" class="text-muted">비밀번호 변경</a></li>
-                                    <li class="breadcrumb-item"><a href="${root }user/mypage_modify" class="text-muted">회원정보 수정</a></li>
-                                    <li class="breadcrumb-item"><a href="${root }user/mypage_withdraw" class="text-muted">회원탈퇴</a></li>
-                                    
-                                  
-                                </ol>
-                            </nav>
-                        </div>
-                    </div>
-                    <div class="col-5 align-self-center">
-                        <div class="customize-input float-right">
-                            <select class="custom-select custom-select-set form-control bg-white border-0 custom-shadow custom-radius">
-                                <option selected>Aug 19</option>
-                                <option value="1">July 19</option>
-                                <option value="2">Jun 19</option>
-                            </select>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <!-- ============================================================== -->
-            <!-- End Bread crumb and right sidebar toggle -->
-            <!-- ============================================================== -->
-            <!-- ============================================================== -->
-            <!-- Container fluid  -->
-            <!-- ============================================================== -->
-            <div class="container-fluid">
-                <!-- ============================================================== -->
-                <!-- Start Page Content -->
-                <!-- ============================================================== -->
-                <div class="row">
-				<div class="col-sm-12 col-md-3 "></div>
+        <div
+		class="auth-wrapper d-flex no-block justify-content-center align-items-center position-relative"
+		>
+		<div class="container-fluid row">
+			<div class="col-md-4 "></div>
+			<div class="col-md-6 bg-white">
+				<h2 class="mt-5 text-center">회원정보 수정</h2>
+				<p class="text-center"></p>
+				<hr style="background-color: #5f76e8" />
 
-
-				<div class="col-sm-12 col-md-5 ">
-					<div class="card">
-						<h2 class="card-title" align="center">회원정보 수정</h2>
-						<div class="card-body">
-
-							<form:form class="mt-4" modelAttribute="modifyUserBean">
+				<form:form class="mt-4" action="${root}user/mypage_modify_pro" method="post" modelAttribute="getmodifyUserBean">
+								<h4 class="card-title">사용자 이름</h4>
 								<div class="form-group">
-									<form:input path="user_name" class="form-control" value="이름"
-										disabled="disabled"/>
+									<form:input path="user_name" class="form-control" readonly="readonly"/>
+									
 								</div>
+								<br />
+								<h4 class="card-title">사용자 이메일</h4>
 								<div class="form-group">
-									<form:input path="dep_name" class="form-control" value="부서"
-										disabled="disabled"/>
+									<form:input path="user_email" class="form-control" readonly="readonly"/>
+									
 								</div>
+								<br />
+								<h4 class="card-title">사용자 주소</h4>
 								<div class="form-group">
-									<form:input path="emp_id" class="form-control" value="사번"
-										disabled="disabled"/>
+									<form:input path="user_addr1" class="form-control"/>
+									
 								</div>
+								<br />
+								<h4 class="card-title">사용자 상세주소</h4>
 								<div class="form-group">
-									<form:input path="email" class="form-control" value="이메일"/>
+									<form:input path="user_addr2" class="form-control"/>
+									
 								</div>
+								<br />
+								<h4 class="card-title">사용자 연락처</h4>
 								<div class="form-group">
-									<form:input path="user_addr" class="form-control" value="주소지"/>
+									<form:input path="user_tel" class="form-control"/>
+									
 								</div>
-								<div class="form-group">
-									<form:input path="extension_tel" class="form-control" value="내선번호"
-									disabled="disabled"/>
-								</div>
-								<div class="form-group">
-									<form:input path="user_tel" class="form-control" value="연락처"/>
-								</div>
-
-
-							</form:form>
-
-
-						</div>
-						<form:button 
-							class="btn waves-effect waves-light btn-rounded btn-primary"
-							style="float: center;">수정하기</form:button>
-					</div>
-				</div>
+								<br />
+							
+						<form:button class="btn waves-effect waves-light btn-rounded btn-primary" style="float: center ">수정하기</form:button>
+								
+				</form:form>
 			</div>
-                <!-- ============================================================== -->
-                <!-- End PAge Content -->
-                <!-- ============================================================== -->
-                <!-- ============================================================== -->
-                <!-- Right sidebar -->
-                <!-- ============================================================== -->
-                <!-- .right-sidebar -->
-                <!-- ============================================================== -->
-                <!-- End Right sidebar -->
-                <!-- ============================================================== -->
-            </div>
-            <!-- ============================================================== -->
-            <!-- End Container fluid  -->
-            <!-- ============================================================== -->
-            <!-- ============================================================== -->
-            <!-- footer -->
-            <!-- ============================================================== -->
-            <footer class="footer text-center text-muted">
-                All Rights Reserved by Adminmart. Designed and Developed by <a
-                    href="https://wrappixel.com">WrapPixel</a>.
-            </footer>
-            <!-- ============================================================== -->
-            <!-- End footer -->
-            <!-- ============================================================== -->
-        </div>
-        <!-- ============================================================== -->
-        <!-- End Page wrapper  -->
-        <!-- ============================================================== -->
-    </div>
-    <!-- ============================================================== -->
-    <!-- End Wrapper -->
-    <!-- ============================================================== -->
-    <!-- End Wrapper -->
-    <!-- ============================================================== -->
-    <!-- All Jquery -->
-    <!-- ============================================================== -->
-    <script src="../assets/libs/jquery/dist/jquery.min.js"></script>
-    <!-- Bootstrap tether Core JavaScript -->
+		</div>
+		<div class="col-3"></div>
+	</div>
+	</div>
+     </div>   
+    
+	<!-- 직접입력누르면 텍스트박스 활성화 기능구현 제이쿼리문 -->
+<!-- <script type="text/javascript">
+  function InsertTitle(str) {
+  if (str != "") {
+   document.getElementById("vac_minus").value = str;
+   document.getElementById("vac_minus").readOnly = true;
+   document.getElementById("vac_minus").style.background = "#DFDFDF";
+  } else {
+   document.getElementById("vac_minus").value = "";
+   document.getElementById("vac_minus").readOnly = false;
+   document.getElementById("vac_minus").style.background = "#FFFFFF";
+   document.getElementById("vac_minus").focus();
+  }
+ }
+</script> -->
+
+
+
+
+ <script src="../assets/libs/jquery/dist/jquery.min.js"></script>
     <script src="../assets/libs/popper.js/dist/umd/popper.min.js"></script>
     <script src="../assets/libs/bootstrap/dist/js/bootstrap.min.js"></script>
     <!-- apps -->
     <!-- apps -->
     <script src="../dist/js/app-style-switcher.js"></script>
     <script src="../dist/js/feather.min.js"></script>
-    <!-- slimscrollbar scrollbar JavaScript -->
     <script src="../assets/libs/perfect-scrollbar/dist/perfect-scrollbar.jquery.min.js"></script>
-    <script src="../assets/extra-libs/sparkline/sparkline.js"></script>
-    <!--Wave Effects -->
-    <!-- themejs -->
-    <!--Menu sidebar -->
     <script src="../dist/js/sidebarmenu.js"></script>
     <!--Custom JavaScript -->
     <script src="../dist/js/custom.min.js"></script>
+    <!--This page JavaScript -->
+    <script src="../assets/extra-libs/c3/d3.min.js"></script>
+    <script src="../assets/extra-libs/c3/c3.min.js"></script>
+    <script src="../assets/libs/chartist/dist/chartist.min.js"></script>
+    <script src="../assets/libs/chartist-plugin-tooltips/dist/chartist-plugin-tooltip.min.js"></script>
+    <script src="../assets/extra-libs/jvector/jquery-jvectormap-2.0.2.min.js"></script>
+    <script src="../assets/extra-libs/jvector/jquery-jvectormap-world-mill-en.js"></script>
+    <script src="../dist/js/pages/dashboards/dashboard1.min.js"></script>
+   
 </body>
 
 </html>

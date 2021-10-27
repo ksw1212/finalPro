@@ -212,59 +212,7 @@
         <!-- ============================================================== -->
         <!-- Left Sidebar - style you can find in sidebar.scss  -->
         <!-- ============================================================== -->
-        <aside class="left-sidebar" data-sidebarbg="skin6">
-            <!-- Sidebar scroll-->
-            <div class="scroll-sidebar" data-sidebarbg="skin6">
-                <!-- Sidebar navigation-->
-                <nav class="sidebar-nav">
-                    <ul id="sidebarnav">
-                        <li class="sidebar-item"> <a class="sidebar-link sidebar-link" href="index.html"
-                                aria-expanded="false"><i data-feather="home" class="feather-icon"></i><span
-                                    class="hide-menu">Dashboard</span></a></li>
-                        <li class="list-divider"></li>
-
-                        <li class="list-divider"></li>
-                        <li class="nav-small-cap"><span class="hide-menu">Components</span></li>
-                        <li class="sidebar-item"> <a class="sidebar-link has-arrow" href="javascript:void(0)"
-                                aria-expanded="false"><i data-feather="file-text" class="feather-icon"></i><span
-                                    class="hide-menu">My Page </span></a>
-                            <ul aria-expanded="false" class="collapse  first-level base-level-line">
-                            
-                                <li class="sidebar-item"><a href="${root }user/mypage" class="sidebar-link"><span
-                                            class="hide-menu"> My Page 홈
-                                        </span></a>
-                                </li>
-                                <li class="sidebar-item"><a href="${root }user/profile?user_idx=${user_idx}" class="sidebar-link"><span
-                                            class="hide-menu"> 상세정보
-                                        </span></a>
-                                </li>
-                                <li class="sidebar-item"><a href="${root }user/mypage_password" class="sidebar-link"><span
-                                            class="hide-menu"> 비밀번호 변경
-                                        </span></a>
-                                </li>
-                                <li class="sidebar-item"><a href="${root }user/mypage_modify" class="sidebar-link"><span
-                                            class="hide-menu"> 회원정보 수정
-                                        </span></a>
-                                </li>
-                                <li class="sidebar-item"><a href="${root }user/mypage_withdraw" class="sidebar-link"><span
-                                            class="hide-menu"> 회원탈퇴
-                                        </span></a>
-                                </li>
-                            
-                            </ul>
-                        </li>
-                        <li class="list-divider"></li>
-                        <li class="nav-small-cap"><span class="hide-menu">Extra</span></li>
-                        
-                        <li class="sidebar-item"> <a class="sidebar-link sidebar-link" href="${root }user/logout"
-                                aria-expanded="false"><i data-feather="log-out" class="feather-icon"></i><span
-                                    class="hide-menu">로그아웃</span></a></li>
-                    </ul>
-                </nav>
-                <!-- End Sidebar navigation -->
-            </div>
-            <!-- End Sidebar scroll-->
-        </aside>
+        <c:import url="/WEB-INF/views/include/left-side-bar.jsp"/>
         <!-- ============================================================== -->
         <!-- End Left Sidebar - style you can find in sidebar.scss  -->
         <!-- ============================================================== -->
@@ -284,7 +232,7 @@
                                 <ol class="breadcrumb m-0 p-0">
                                
                                 	<li class="breadcrumb-item"><a href="${root }user/mypage" class="text-muted">마이페이지</a></li>
-                                    <li class="breadcrumb-item"><a href="${root}user/profile" class="text-muted">상세정보</a></li>
+                                    <li class="breadcrumb-item"><a href="${root}user/profile?user_idx=${user_idx}" class="text-muted">상세정보</a></li>
                                     <li class="breadcrumb-item"><a href="${root}user/mypage_password" class="text-muted">비밀번호 변경</a></li>
                                     <li class="breadcrumb-item"><a href="${root }user/mypage_modify" class="text-muted">회원정보 수정</a></li>
                                     <li class="breadcrumb-item"><a href="${root }user/mypage_withdraw" class="text-muted">회원탈퇴</a></li>

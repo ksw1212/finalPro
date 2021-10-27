@@ -48,7 +48,6 @@ public class UserController {
 		UserBean myprofileUserBean = userService.selectUserInfo(user_idx);
 		model.addAttribute("myprofileUserBean",myprofileUserBean);
 		model.addAttribute("loginUserBean",loginUserBean);
-		
 		return "user/profile";
 	}
 
@@ -128,6 +127,7 @@ public class UserController {
 
 	@GetMapping("/mypage_password")
 	public String mypage_password(@ModelAttribute("getmidifyPasswordBean") UserBean getmidifyPasswordBean) {
+		getmidifyPasswordBean.setUser_password(loginUserBean.getUser_password());
 		userService.getmodifyPasswordInfo(getmidifyPasswordBean);
 		return "user/mypage_password";
 	}
@@ -142,29 +142,22 @@ public class UserController {
 	}
 	
 	@GetMapping("/mypage_modify")
-	public String mypage_modify(@ModelAttribute("modifyUserBean") UserBean modifyUserBean) {
-		userService.modifyUserInfo(modifyUserBean);
+	public String mypage_modify(@ModelAttribute("getmodifyUserBean") UserBean getmodifyUserBean) {
+		userService.getModifyUserBean(getmodifyUserBean);
 		return "user/mypage_modify";
 	}
-
-	@RequestMapping(value = "/mypage_withdraw", method = {RequestMethod.GET,RequestMethod.POST })
-	public String mypage_withdraw(@ModelAttribute("deleteUserBean") UserBean deleteUserBean) {
-		
-		
-		return "user/mypage_withdraw";
-	}
-	@RequestMapping(value = "/mypage_withdraw_pro", method = {RequestMethod.GET, RequestMethod.POST})
-	public String mypage_withdraw_pro(@Valid @ModelAttribute("deleteUserBean")UserBean deleteUserBean,BindingResult result) {
+	@PostMapping("/mypage_modify_pro")
+	public String mypage_modify_pro(@ModelAttribute("modifyUserBean")UserBean modifyUserBean,BindingResult result) {
 		if(result.hasErrors()) {
-			return "user/mypage_withdraw";
+			return "user/mypage_modify";
 		}
-		
-		userService.deleteMemberInfo(loginUserBean.getUser_email(), loginUserBean.getUser_password());
-		return "user/landing/landing";
+		userService.modifyUserInfo(modifyUserBean);
+		return "user/mypage_modify_success";
 	}
-	
+
 	@GetMapping("/logout")
 	public String logout() {
+		loginUserBean.setUserLogin(false);
 		return "user/logout";
 	}
 	@GetMapping("/vac_req")

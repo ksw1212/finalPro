@@ -20,15 +20,15 @@ public interface UserMapper {
 			+ "from onf_user where user_idx=#{user_idx}")
 	UserBean personalUserInfo(int user_idx);
 
-	@Select("select a.user_name, a.user_email, a.user_tel, a.user_addr1, a.user_addr2, b.emp_id, b.extension_tel, b.join_date, b.position_name, b.dep_name, b.status "
-			+ "from onf_user a, employee b, department c where user_idx=emp_user_idx and b.dep_idx=c.dep_idx and user_idx=#{user_idx}")
+	@Select("select b.emp_id, b.extension_tel, b.join_date, b.position_name, b.dep_name, b.status "
+			+ "from onf_user a, employee b, department c where a.user_idx=b.emp_user_idx and b.dep_idx=c.dep_idx and user_idx=#{user_idx}")
 	UserBean selectUserInfo(int user_idx);
 	
-	@Update("update onf_user set user_email=#{user_email},user_addr1=#{user_addr1},user_addr2=#{user_addr2},user_tel=#{user_tel} "
+	@Update("update onf_user set  user_email=#{user_email, jdbcType=VARCHAR},user_addr1=#{user_addr1},user_addr2=#{user_addr2},user_tel=#{user_tel} "
 			+ "where user_idx=#{user_idx}")
 	void modifyUserInfo(UserBean modifyUserBean);
 
-	@Update("update onf_user set user_password=#{user_password} where user_idx=#{user_idx}")
+	@Update("update onf_user set user_password=#{user_newpassword} where user_idx=#{user_idx}")
 	void modifyPasswordInfo(UserBean modifyPasswordBean);
 	
 	@Select("select user_password from onf_user where user_idx=#{user_idx}")

@@ -51,6 +51,7 @@ public class UserService {
 	public void getModifyUserBean(UserBean modifyUserBean) {
 		UserBean tempModifyUserBean=userDao.personalUserInfo(loginUserBean.getUser_idx());
 	
+		modifyUserBean.setUser_name(tempModifyUserBean.getUser_name());
 		modifyUserBean.setUser_email(tempModifyUserBean.getUser_email());
 		modifyUserBean.setUser_addr1(tempModifyUserBean.getUser_addr1());
 		modifyUserBean.setUser_addr2(tempModifyUserBean.getUser_addr2());

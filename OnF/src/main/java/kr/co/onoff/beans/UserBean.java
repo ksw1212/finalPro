@@ -18,6 +18,7 @@ public class UserBean {
 	private String user_addr2; // 회원상세주소
 	private String user_auth_key; // 인증키
 	private String user_auth_ok; //	인증여부
+	private String user_newpassword;
 
     
     private boolean userIdExist;

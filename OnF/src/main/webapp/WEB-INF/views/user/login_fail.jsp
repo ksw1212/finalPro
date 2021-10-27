@@ -3,5 +3,5 @@
 <c:set var="root" value="${pageContext.request.contextPath }/"/>
 <script>
 	alert('로그인에 실패했습니다.')
-	location.href="${root}landing/landing"
+	location.href="${root}user/login"
 </script>

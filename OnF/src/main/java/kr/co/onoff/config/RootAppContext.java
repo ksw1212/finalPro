@@ -13,6 +13,7 @@ public class RootAppContext {
 	@Bean("loginUserBean")
 	@SessionScope
 	public UserBean loginUserBean() {
+		
 		return new UserBean();
 	}
 }
